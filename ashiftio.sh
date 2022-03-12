@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# ashift values to test
+ashifts=( 9 12 13 )
+
+# recordsize values to test
+recordsizes=(4K 8K 16K 64k 128K 1M)
+
+
 usage() {
     echo 'usage: ashiftio [-v][-s seconds] path-to-block-device'
     exit 0
@@ -50,8 +57,6 @@ echo "starting tests...."
 
 # set up variables
 cwd=$(pwd)
-ashifts=( 9 12 13 )
-recordsizes=(4K 8K 16K 64k 128K 1M)
 commands=(
   "fio --name=random-write --ioengine=posixaio --rw=randwrite --bs=4k --size=4g --numjobs=1 --iodepth=1 --runtime=$seconds --time_based --end_fsync=1"
   "fio --name=random-write --ioengine=posixaio --rw=randwrite --bs=64k --size=256m --numjobs=16 --iodepth=16 --runtime=$seconds --time_based --end_fsync=1"
