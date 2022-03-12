@@ -18,6 +18,7 @@ ashiftio [-v][-s seconds] path-to-block-device
 Optional flags:
 
 -v          Verbose - show all fio output
+
 -s seconds  Number of seconds each fio test should run for (default 60). There are 54 tests in total
 
 
