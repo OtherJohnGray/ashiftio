@@ -84,8 +84,6 @@ do
     fi
     pat='WRITE: bw=([0-9.]*)MiB/s'
     if [[ "$res" =~ $pat ]]; then
-      echo "result was $res"
-      echo "match was ${BASH_REMATCH[1]}"
       results+=( ${BASH_REMATCH[1]} )
     else
       echo ""
