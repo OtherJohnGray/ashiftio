@@ -1,8 +1,7 @@
 #!/bin/bash
 
 # ashift values to test
-ashifts=( 9 12 13 14 15 16 )
-
+ashifts=( 12 13 14 15 16 )
 
 usage() {
     echo 'usage: ashiftio [-v][-s seconds] path-to-block-device'
@@ -46,7 +45,7 @@ echo
 # display runtime
 ashift_count=${#ashifts[@]}
 ((test_count=$ashift_count*3))
-((runtime=ashift_count*$seconds/60))
+((runtime=test_count*$seconds/60))
 echo ""
 echo ""
 echo "Each fio test will run for $seconds seconds. The $test_count tests will run for approximately $runtime minutes in total. If this is too long, stop this test and use the -s flag to set a lower number of seconds for each fio test."
@@ -107,8 +106,9 @@ done
 
 # print results
 ((underscore_count=${#disk}+50))
+printf "\n\n\n\n"
 eval printf %.0s- '{1..'"$underscore_count"\}
-printf "\n\n\n\n\nWrite performance in MiB/s at various ashifts for $disk\n"
+printf "\nWrite performance in MiB/s at various ashifts for $disk\n"
 eval printf %.0s- '{1..'"$underscore_count"\}
 printf "\n\n"
 printf "%6s %10s %10s %10s \n" "ASHIFT" ${recordsizes[0]} ${recordsizes[1]} ${recordsizes[2]}
