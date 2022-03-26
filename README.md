@@ -26,7 +26,7 @@ Ashiftio accepts the path to a block device as a parameter. It creates zpools wi
 six fio tests to simulate different workloads. Based roughly on the recommendations from https://arstechnica.com/gadgets/2020/02/how-fast-are-your-disks-find-out-the-open-source-way-with-fio/ the workloads are Single 4KiB random read and write processes, 
 16 parallel 64KiB random read and write processes, and Single 1MiB random read and write processes. Each test is run in a dataset with matching recordsize, to avoid any write amplification due to recordsize. The script then displays the results of each workload in tabular form by recordsize and ashift.
 
-If you would like to change the recordsize or ashifts used, you can easily edit the values in the script. Be careful with testing ashift=9, as with certain NVMe drives that are formatted to 4K blocksize, this can cause the 'zpool create' command to hang and lock up ZFS until the machine is restarted. Only use ashift=9 if you know your drive is formatted to 512kb blocksize.
+If you would like to change the recordsize or ashifts used, you can easily edit the values in the script. Be careful with testing ashift=9, as with certain NVMe drives that are formatted to 4K blocksize, this can cause the 'zpool create' command to hang and lock up ZFS until the machine is restarted. Only use ashift=9 if you know your drive is formatted to 512 byte blocksize.
 
 
 
