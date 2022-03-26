@@ -19,7 +19,7 @@ Optional flags:
 
 -v : Verbose - show all fio output
 
--s seconds : Number of seconds each fio test should run for (default 60). There are 54 tests in total.
+-s seconds : Number of seconds each fio test should run for (default 60). There are 30 tests in total.
 
 
 Ashiftio accepts the path to a block device as a parameter. It creates zpools with ashift of 12, 13, 14, 15, and 16 in turn, and runs 
